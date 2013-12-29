@@ -43,3 +43,25 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  # Use capybara as the test tool
+  gem 'capybara'
+
+  # Use rspec as the test tool
+  gem 'rspec-rails'
+
+  # Use guard
+  gem 'guard-rspec'
+  gem 'growl'
+
+  gem 'webrat'
+  gem 'database_cleaner'
+
+  gem 'factory_girl_rails'
+
+  gem 'simplecov', :require => false
+
+  gem "better_errors"
+  gem "binding_of_caller"
+end
