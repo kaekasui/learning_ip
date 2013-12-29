@@ -68,3 +68,7 @@ end
 
 # Use devise as the flexible authentication solution
 gem 'devise'
+
+# Use Haml for views
+gem 'haml-rails'
+gem 'erb2haml'
