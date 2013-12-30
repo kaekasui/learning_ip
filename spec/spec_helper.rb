@@ -23,9 +23,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
 
-	      # for devise test helper
-	    #     config.include Devise::TestHelpers, :type => :controller
-  #
+  # for devise test helper
+  config.include Devise::TestHelpers, :type => :controller
+
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
   #
   # config.mock_with :mocha
