@@ -45,9 +45,9 @@ describe Users::SessionsController do
     let(:user) { create(:original_user) }
 
     context "when data is normal." do
-      it "response code is 200." do
+      it "response code is 302." do
         post :create, { user: { email: "abc@example.com", password: "password" }}
-        expect(response.status).to eq 200
+        expect(response.status).to eq 302
       end
     end
 

@@ -49,12 +49,12 @@ describe Users::RegistrationsController do
         post :create, { user: { email: "abc@example.com", password: "password", password_confirmation: "password" }}
       end
 
-      it "response code is 200." do
-        expect(response.status).to eq 200
+      it "response code is 302." do
+        expect(response.status).to eq 302
       end
 
       it "render template the top page, after sign up." do
-        expect(response).to render_template(root_path)
+        expect(response).to redirect_to(root_path)
       end
     end
 
