@@ -7,7 +7,7 @@ describe HomeController do
       expect(response.status).to eq 200
     end
 
-    it 'render template is :index' do
+    it 'render template :index' do
       get :index
       expect(response).to render_template(:index)
     end

@@ -12,7 +12,7 @@ describe Users::SessionsController do
         expect(response.status).to eq 200
       end
 
-      it 'render template is :new' do
+      it 'render template :new' do
         get :new
         expect(response).to render_template(:new)
       end
@@ -52,7 +52,7 @@ describe Users::SessionsController do
     end
 
     context "when email is blank." do
-      it "once more, render template is :new." do
+      it "once more, render template :new." do
         post :create, { user: { email: "", password: "password" }}
         expect(response).to render_template(:new)
       end
