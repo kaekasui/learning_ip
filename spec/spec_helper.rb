@@ -5,7 +5,19 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'simplecov'
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter 'factories'
+
+  add_group 'Models', 'models'
+  add_group 'Controllers', 'controllers'
+  add_group 'Helpers', 'helpers'
+  add_group 'Views', 'views'
+  add_group 'Mailers', 'mailers'
+  add_group 'Libraries', 'lib'
+  add_group 'Routing', 'routing'
+  add_group 'Features', 'features'
+  add_group 'Requests', 'requests'
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
