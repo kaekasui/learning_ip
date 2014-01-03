@@ -42,9 +42,6 @@ ja:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: "更新しました。"
     sessions:
-      user:
-        signed_up: "ログインしました。"
-        destroyed: "ログアウトしました。"
       signed_in: "ログインしました。"
       signed_out: "ログアウトしました。"
     unlocks:
