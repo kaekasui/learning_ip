@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# ruby version
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -9,6 +12,7 @@ gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+# Use Twitter Bootstrap
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
@@ -79,3 +83,14 @@ gem 'devise'
 # Use Haml for views
 gem 'haml-rails'
 gem 'erb2haml'
+
+gem 'rails-i18n'
+
+# Use kaminari for paginate
+gem 'kaminari'
+
+# Use the plugin which hide records of deleting them, being to recover them.
+gem 'paranoia'
+
+# Use to set environment variables on development machines
+gem 'dotenv-rails'
