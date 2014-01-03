@@ -5,7 +5,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      .brand= link_to I18n.t(".brand"), root_path
+      = link_to I18n.t(".brand"), root_path, class: "brand"
       .container.nav-collapse
         %ul.nav
           - if user_signed_in?
