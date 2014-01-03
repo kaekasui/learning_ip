@@ -1,0 +1,2 @@
+class OriginalUser < User
+end
