@@ -10,10 +10,11 @@ gem 'rails', '4.0.2'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 # Use Twitter Bootstrap
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
 gem 'therubyracer'
 gem 'less-rails'
 
