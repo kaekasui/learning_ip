@@ -9,7 +9,7 @@ describe 'layouts/application' do
 
     it 'display the brand.' do
       render
-      expect(rendered).to have_selector(".header a.brand", content: I18n.t(".brand"))
+      expect(rendered).to have_selector(".header a.navbar-brand", content: I18n.t(".brand"))
     end
 
     it 'display the sign up link.' do
@@ -30,7 +30,7 @@ describe 'layouts/application' do
 
     it 'display the brand.' do
       render
-      expect(rendered).to have_selector(".header a.brand", content: I18n.t(".brand"))
+      expect(rendered).to have_selector(".header a.navbar-brand", content: I18n.t(".brand"))
     end
 
     it "don't display the sign up link." do

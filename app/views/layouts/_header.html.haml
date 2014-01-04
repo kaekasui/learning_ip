@@ -1,15 +1,14 @@
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container
-      %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to I18n.t(".brand"), root_path, class: "brand"
-      .container.nav-collapse
-        %ul.nav
-          - if user_signed_in?
-            %li= link_to t("account.logout"), destroy_user_session_path, method: :delete
-          - else
-            %li= link_to t("account.new"), new_user_registration_path
-            %li= link_to t("account.login"), new_user_session_path
+.navbar.navbar-default(role="navigation")
+  .navbar-header
+    %button.navbar-toggle(type="button" data-toggle="collapse")
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to I18n.t(".brand"), root_path, class: "navbar-brand"
+  .collapse.navbar-collapse
+    %ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        %li= link_to t("account.logout"), destroy_user_session_path, method: :delete
+      - else
+        %li= link_to t("account.new"), new_user_registration_path
+        %li= link_to t("account.login"), new_user_session_path
