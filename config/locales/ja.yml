@@ -7,3 +7,7 @@ ja:
     login: "ログイン"
     logout: "ログアウト"
     new: "無料新規登録"
+
+  actions:
+    create: "登録する"
+    login: "ログインする"
