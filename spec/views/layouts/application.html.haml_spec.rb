@@ -9,7 +9,7 @@ describe 'layouts/application' do
 
     it 'display the brand.' do
       render
-      expect(rendered).to have_selector(".header a.navbar-brand", content: I18n.t(".brand"))
+      expect(rendered).to have_selector(".header a.navbar-brand", content: I18n.t("brand.name"))
     end
 
     it 'display the sign up link.' do
@@ -26,11 +26,12 @@ describe 'layouts/application' do
   context 'with logged-in user' do
     before do
       view.stub(:user_signed_in?) { true }
+      view.stub(:current_user) { create(:original_user) }
     end
 
     it 'display the brand.' do
       render
-      expect(rendered).to have_selector(".header a.navbar-brand", content: I18n.t(".brand"))
+      expect(rendered).to have_selector(".header a.navbar-brand", content: I18n.t("brand.name"))
     end
 
     it "don't display the sign up link." do
