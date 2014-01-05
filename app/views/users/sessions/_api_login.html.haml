@@ -1,2 +1,1 @@
-%button.btn.btn-default(type="button")
-  = link_to I18n.t("account.twitter_login"), "#"
+.btn.btn-default= link_to I18n.t("account.twitter_login"), user_omniauth_authorize_path(provider: "twitter")
