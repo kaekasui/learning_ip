@@ -4,7 +4,7 @@ describe 'users/sessions/new' do
   before do
     view.stub(:devise_mapping) { Devise.mappings[:user] }
     view.stub(:devise_error_messages!) { [] }
-    view.stub(:resource) { User.new }
+    view.stub(:resource) { OriginalUser.new }
     view.stub(:resource_name) { "user" }
   end
 
