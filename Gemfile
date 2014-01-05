@@ -95,3 +95,7 @@ gem 'paranoia'
 
 # Use to set environment variables on development machines
 gem 'dotenv-rails'
+
+# Use OmniAuth for authenticate
+gem 'twitter'
+gem 'omniauth-twitter'

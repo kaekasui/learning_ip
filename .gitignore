@@ -20,3 +20,8 @@
 
 # Ignore the folder of 'simplecov'
 /coverage
+
+# Ignore the files to set the environment variable.
+/.env.production
+/.env.development
+/.env.test
