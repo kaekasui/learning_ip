@@ -9,4 +9,8 @@ LearningIp::Application.routes.draw do
   devise_scope :user do
     delete 'users/disconnect/:provider' => 'users/omniauth_callbacks#disconnect', as: 'disconnect_omniauth_provider'
   end
+
+  namespace :admin do
+    root 'dashboard#index'
+  end
 end
