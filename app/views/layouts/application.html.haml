@@ -22,10 +22,8 @@
       = render partial: "layouts/header"
 
     .container
-      .row
-        .span12
-          = bootstrap_flash
-          = yield
+      = bootstrap_flash
+      = yield
     
     .footer
       = render partial: "layouts/footer"

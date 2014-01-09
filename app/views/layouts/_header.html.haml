@@ -8,6 +8,7 @@
   .collapse.navbar-collapse
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
+        %li= link_to t("account.status"), edit_user_registration_path
         %li= link_to t("account.logout"), destroy_user_session_path, method: :delete
       - else
         %li= link_to t("account.new"), new_user_registration_path
