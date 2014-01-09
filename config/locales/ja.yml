@@ -1,8 +1,11 @@
 ja:
   account:
+    edit: "アカウントの編集"
+    delete: "退会"
     login: "ログイン"
     logout: "ログアウト"
     new: "無料新規登録"
+    status: "アカウント"
     twitter_login: "Twitterでログイン"
   actions:
     create: "登録する"
