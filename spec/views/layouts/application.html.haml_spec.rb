@@ -26,7 +26,7 @@ describe 'layouts/application' do
   context 'with logged-in user' do
     before do
       view.stub(:user_signed_in?) { true }
-      view.stub(:current_user) { create(:original_user) }
+      view.stub(:current_user) { build(:original_user) }
     end
 
     it 'display the brand.' do
