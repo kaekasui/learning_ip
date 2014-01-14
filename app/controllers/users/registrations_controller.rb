@@ -7,6 +7,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def show
+    @original_user = OriginalUser.find_by_code(current_user.code) || OriginalUser.new
+    @twitter_user = TwitterUser.find_by_code(current_user.code) || TwitterUser.new
+  end
+
   private
   def sign_up_params
     params = devise_parameter_sanitizer.sanitize(:sign_up)

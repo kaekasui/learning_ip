@@ -32,7 +32,7 @@ describe Users::RegistrationsController do
 
       it "redirect to the top page." do
         get :new
-	expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(root_path)
       end
     end
 
@@ -66,6 +66,52 @@ describe Users::RegistrationsController do
       it "once more, render template :new." do
         expect(response).to render_template(:new)
       end
+    end
+  end
+
+  describe "#show" do
+    context "with logged-in original user" do
+      before do
+        controller.stub(:authenticate_user!).and_return true
+        @user = create(:original_user)
+        sign_in @user
+      end
+
+      it "response code is 200." do
+        get :show, id: @user.id
+        expect(response.status).to eq 200
+      end
+
+      it "render template :new." do
+        get :show, id: @user.id
+        expect(response).to render_template(:show)
+      end
+
+      after do
+        sign_out :user
+      end
+    end
+
+    context "with logged-in twitter user" do
+      before do
+        controller.stub(:authenticate_user!).and_return true
+        @user = create(:twitter_user)
+        sign_in @user
+      end
+
+      it "response code is 200." do
+        get :show, id: @user.id
+        expect(response.status).to eq 200
+      end
+
+      it "redirect to the top page." do
+        get :show, id: @user.id
+        expect(response).to render_template(:show)
+      end
+    end
+
+    after do
+      sign_out :user
     end
   end
 end

@@ -5,11 +5,22 @@ ja:
     login: "ログイン"
     logout: "ログアウト"
     new: "無料新規登録"
+    unregistered: "（未設定）"
+    profile: "プロフィール"
+    social_media: "ソーシャル連携"
     status: "アカウント"
+    twitter: "Twitter"
     twitter_login: "Twitterでログイン"
   actions:
     create: "登録する"
     login: "ログインする"
+    regist_twitter: "Twitterを登録する"
+    unregist_twitter: "Twitter連携を解除する"
+    update: "編集する"
+  buttons:
+    edit: "編集"
+    edit_email: "メールアドレスの変更"
+    edit_password: "パスワードの変更"
   brand:
     name: "アプレンダー"
     subname: "[aprende.]"

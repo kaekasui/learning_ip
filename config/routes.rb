@@ -7,6 +7,7 @@ LearningIp::Application.routes.draw do
   }
 
   devise_scope :user do
+    get 'users/profile' => 'users/registrations#show'
     delete 'users/disconnect/:provider' => 'users/omniauth_callbacks#disconnect', as: 'disconnect_omniauth_provider'
   end
 
