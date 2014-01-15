@@ -1,14 +1,8 @@
 class NoticeMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "aprende.notice@gmail.com"
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.notice_mailer.sendmail_confirm.subject
-  #
-  def sendmail_confirm
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def change_email(user)
+    @user = user
+    mail to: @user.email, subject: "メールアドレスを変更します。"
   end
 end
