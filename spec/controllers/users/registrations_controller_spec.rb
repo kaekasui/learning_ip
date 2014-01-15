@@ -82,7 +82,7 @@ describe Users::RegistrationsController do
         expect(response.status).to eq 200
       end
 
-      it "render template :new." do
+      it "render template :show." do
         get :show, id: @user.id
         expect(response).to render_template(:show)
       end
@@ -104,7 +104,7 @@ describe Users::RegistrationsController do
         expect(response.status).to eq 200
       end
 
-      it "redirect to the top page." do
+      it "render template :show." do
         get :show, id: @user.id
         expect(response).to render_template(:show)
       end
