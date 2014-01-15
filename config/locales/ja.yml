@@ -1,11 +1,13 @@
 ja:
   account:
-    edit: "アカウントの編集"
+    edit_password: "パスワードの変更"
     delete: "退会"
     login: "ログイン"
     logout: "ログアウト"
     new: "無料新規登録"
     unregistered: "（未設定）"
+    new_password: "新しいパスワード"
+    new_password_confirmation: "新しいパスワード（確認）"
     profile: "プロフィール"
     social_media: "ソーシャル連携"
     status: "アカウント"
