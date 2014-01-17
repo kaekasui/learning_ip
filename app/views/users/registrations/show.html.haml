@@ -5,20 +5,29 @@
       %tr
         %th
           %label= User.human_attribute_name(:name)
-        %td= @original_user.name || I18n.t("account.unregistered")
+        %td= @original_user.name.present? ? @original_user.name : I18n.t("account.unregistered")
         %td
-          %button.btn.btn-default= link_to I18n.t("buttons.edit"), "#"
+          .btn.btn-default= link_to I18n.t("buttons.config"), users_name_path, id: "name"
       %tr
         %th
           %label= User.human_attribute_name(:email)
-        %td= @original_user.email || I18n.t("accout.unregistered")
+        %td= @original_user.email.present? ? @original_user.email : I18n.t("account.unregistered")
         %td
-          %button.btn.btn-default= link_to I18n.t("buttons.edit"), "#"
-      %tr
-        %th
-        %td
-        %td
-          .btn.btn-default= link_to I18n.t("buttons.edit_password"), edit_user_registration_path
+          .btn.btn-default= link_to I18n.t("buttons.config"), users_email_path, id: "email"
+      - if @virtual_user
+        %tr
+          %th
+          %td
+            = I18n.t("account.waiting_list")
+            = @virtual_user.email
+          %td
+      - if @original_user.email.present?
+        %tr
+          %th
+          %td
+          %td
+            .btn.btn-default= link_to I18n.t("buttons.edit_password"), edit_user_registration_path
+
 .panel.panel-default
   .panel-heading= I18n.t("account.social_media")
   .panel-body

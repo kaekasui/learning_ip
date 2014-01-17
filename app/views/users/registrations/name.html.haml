@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading= I18n.t("account.name")
+  .panel-body
+    - flash[:error] = devise_error_messages!
+
+    = form_for(@user, html: { role: "form" }, url: users_update_name_path, html: { method: :post }) do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, autofocus: true, class: "form-control"
+      .form-group
+        = f.submit class: "btn btn-default"

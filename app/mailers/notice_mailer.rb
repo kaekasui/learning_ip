@@ -3,6 +3,6 @@ class NoticeMailer < ActionMailer::Base
 
   def change_email(user)
     @user = user
-    mail to: @user.email, subject: "メールアドレスを変更します。"
+    mail to: @user.email, subject: I18n.t("messages.change_email")
   end
 end
