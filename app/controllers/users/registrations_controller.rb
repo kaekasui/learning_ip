@@ -44,6 +44,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def update_email
+    @virtual_user = VirtualUser.find_by_code(current_user.code)
+    @original_user = OriginalUser.find_by_code(current_user.code)
+
+    respond_to do |format|
+      if user_code_param == current_user.code
+        if @virtual_user
+          @original_user.email = @virtual_user.email
+          if @original_user.save
+            @virtual_user.destroy
+            format.html { redirect_to users_profile_path, notice: I18n.t("messages.update_user_email") }
+          else
+            format.html { redirect_to users_profile_path, alert: I18n.t("errors.messages.update_user_email") }
+          end
+        else
+          format.html { redirect_to users_profile_path, alert: I18n.t("errors.messages.no_virtual_email") }
+        end
+      else
+        format.html { redirect_to root_path, alert: I18n.t("errors.messages.failure_url_code") }
+      end
+    end
+  end
+
   private
   def sign_up_params
     params = devise_parameter_sanitizer.sanitize(:sign_up)
@@ -57,5 +80,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_name_param
     params.require(:original_user).permit(:name)
+  end
+
+  def user_code_param
+    params.require(:code)
   end
 end

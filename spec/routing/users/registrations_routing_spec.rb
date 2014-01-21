@@ -29,5 +29,9 @@ describe "Users::Registration" do
     it "post '/users/update_name' -> users/registrations#update_name" do
       expect(post '/users/update_name').to route_to('users/registrations#update_name')
     end
+
+    it "get '/users/code-:code' -> users/registrations#update_email" do
+      expect(get '/users/code-abc123').to route_to('users/registrations#update_email', code: "abc123")
+    end
   end
 end

@@ -186,4 +186,87 @@ describe Users::RegistrationsController do
       end
     end
   end
+
+  describe "#update_email" do
+    context "with non-logged-in user" do
+      before do
+        get :update_email, code: "123abc"
+      end
+    end
+
+    context "with logged-in user" do
+      before do
+        controller.stub(:authenticate_user!).and_return true
+        @original_user = create(:original_user, code: "123abc")
+        sign_in @original_user
+      end
+
+      context "code is user code, and there is virtual email." do
+        before do
+          @virtual_user = create(:virtual_user, code: "123abc")
+          get :update_email, code: "123abc"
+        end
+
+        it "response code is 302." do
+          expect(response.status).to eq 302
+        end
+
+        it "redirect to the user profile page." do
+          expect(response).to redirect_to(users_profile_path)
+        end
+
+        it "original user email is new email." do
+          expect(@original_user.reload.email).to eq @virtual_user.email
+        end
+
+        it "destroy the virtual user." do
+          expect(@virtual_user.reload.deleted_at).not_to eq nil
+        end
+      end
+
+      context "code is user code, and there is not virtual email." do
+        before do
+          get :update_email, code: "123abc"
+        end
+
+        it "response code is 302." do
+          expect(response.status).to eq 302
+        end
+
+        it "redirect to the user profile page." do
+          expect(response).to redirect_to(users_profile_path)
+        end
+
+        it "original user email is original user email." do
+          expect(@original_user.reload.email).to eq @original_user.email
+        end
+
+        it "there is not the virtual user." do
+          expect(VirtualUser.find_by_code(@original_user.code)).to eq nil
+        end
+      end
+
+      context "code is not user code, and there is not virtual email." do
+        before do
+          get :update_email, code: "abcdef"
+        end
+
+        it "response code is 302." do
+          expect(response.status).to eq 302
+        end
+
+        it "redirect to the top page." do
+          expect(response).to redirect_to(root_path)
+        end
+
+        it "original user email is original user email." do
+          expect(@original_user.reload.email).to eq @original_user.email
+        end
+      end
+
+      after do
+        sign_out :user
+      end
+    end
+  end
 end

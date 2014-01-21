@@ -13,6 +13,7 @@ LearningIp::Application.routes.draw do
     get 'users/name' => 'users/registrations#name'
     post 'users/update_name' => 'users/registrations#update_name'
     delete 'users/disconnect/:provider' => 'users/omniauth_callbacks#disconnect', as: 'disconnect_omniauth_provider'
+    get 'users/code-:code' => 'users/registrations#update_email', as: "update_users_email"
   end
 
   namespace :admin do
