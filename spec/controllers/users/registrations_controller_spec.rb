@@ -246,6 +246,25 @@ describe Users::RegistrationsController do
         end
       end
 
+      context "code is user code, and there is not virtual email by timeout." do
+        before do
+          @virtual_user = create(:virtual_user, code: "123abc", created_at: 2.days.ago)
+          get :update_email, code: "123abc"
+        end
+
+        it "response code is 302." do
+          expect(response.status).to eq 302
+        end
+
+        it "redirect to the user profile page." do
+          expect(response).to redirect_to(users_profile_path)
+        end
+
+        it "original user email is original user email." do
+          expect(@original_user.reload.email).to eq @original_user.email
+        end
+      end
+
       context "code is not user code, and there is not virtual email." do
         before do
           get :update_email, code: "abcdef"

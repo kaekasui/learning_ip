@@ -45,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_email
-    @virtual_user = VirtualUser.find_by_code(current_user.code)
+    @virtual_user = VirtualUser.where(code: current_user.code, created_at: Time.now.all_day).first
     @original_user = OriginalUser.find_by_code(current_user.code)
 
     respond_to do |format|
