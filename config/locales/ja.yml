@@ -21,7 +21,7 @@ ja:
     login: "ログインする"
     regist_twitter: "Twitterを登録する"
     unregist_twitter: "Twitter連携を解除する"
-    update: "編集する"
+    update: "更新する"
     mail: "送信する"
   buttons:
     config: "設定"
