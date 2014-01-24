@@ -1,0 +1,52 @@
+.panel.panel-default
+  .panel-heading= I18n.t("account.profile")
+  .panel-body
+    %table.table.nonborder
+      %tr
+        %th
+          %label= User.human_attribute_name(:name)
+        %td= @original_user.name.present? ? @original_user.name : I18n.t("account.unregistered")
+        %td
+          .btn.btn-default= link_to I18n.t("buttons.config"), users_name_path, id: "name"
+      %tr
+        %th
+          %label= User.human_attribute_name(:email)
+        %td= @original_user.email.present? ? @original_user.email : I18n.t("account.unregistered")
+        %td
+          .btn.btn-default= link_to I18n.t("buttons.config"), users_email_path, id: "email"
+      - if @virtual_user
+        %tr
+          %th
+          %td
+            = I18n.t("account.waiting_list")
+            = @virtual_user.email
+          %td
+      - if @original_user.email.present?
+        %tr
+          %th
+          %td
+          %td
+            .btn.btn-default= link_to I18n.t("buttons.edit_password"), edit_user_registration_path, id: "password"
+
+.panel.panel-default
+  .panel-heading= I18n.t("account.social_media")
+  .panel-body
+    %table.table.nonborder
+      %tr
+        %th
+          %label= I18n.t("account.twitter")
+        - if @twitter_user.name
+          %td
+            = @twitter_user.name
+            = link_to "@" + @twitter_user.screen_name, "https://twitter.com/#{@twitter_user.screen_name}"
+          %td
+            - if current_user.provider == "twitter"
+              %button.btn.btn-default.disabled
+                = link_to I18n.t("actions.unregist_twitter"), "#"
+            - else
+              %button.btn.btn-default
+                = link_to I18n.t("actions.unregist_twitter"), "#"
+        - else
+          %td= "-"
+          %td
+            %button.btn.btn-default= link_to I18n.t("actions.regist_twitter"), "#"

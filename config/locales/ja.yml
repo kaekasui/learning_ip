@@ -1,18 +1,46 @@
 ja:
   account:
-    edit: "アカウントの編集"
+    edit_email: "メールアドレスの変更"
+    edit_password: "パスワードの変更"
     delete: "退会"
+    email: "メールアドレスの設定"
     login: "ログイン"
     logout: "ログアウト"
     new: "無料新規登録"
+    unregistered: "（未設定）"
+    new_password: "新しいパスワード"
+    new_password_confirmation: "新しいパスワード（確認）"
+    profile: "プロフィール"
+    name: "ニックネームの設定"
+    social_media: "ソーシャル連携"
     status: "アカウント"
+    twitter: "Twitter"
     twitter_login: "Twitterでログイン"
+    waiting_list: "登録待ち"
   actions:
     create: "登録する"
     login: "ログインする"
+    regist_twitter: "Twitterを登録する"
+    unregist_twitter: "Twitter連携を解除する"
+    update: "更新する"
+    mail: "送信する"
+  buttons:
+    config: "設定"
+    edit_email: "メールアドレスの変更"
+    edit_password: "パスワードの変更"
   brand:
     name: "アプレンダー"
     subname: "[aprende.]"
     service: "情報処理技術者試験対策 e-Lerningサービス"
   menu:
     admin: "管理"
+  messages:
+    change_email: "メールアドレスを変更します。"
+    update_user_email: "メールアドレスを更新しました。"
+    update_user_name: "ニックネームを更新しました。"
+    send_mail: "メールを送信しました。"
+  errors:
+    messages:
+      failure_url_code: "無効なURLです。"
+      no_virtual_email: "変更予定のメールアドレスがありません。"
+      update_user_emai: "メールアドレスの更新に失敗しました。"

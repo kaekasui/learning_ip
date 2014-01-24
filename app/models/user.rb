@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:twitter]
   acts_as_paranoid
 
-  before_save :set_access_code
+  before_create :set_access_code
   validates :email, uniqueness: false, presence: false
-  
+
   private
 
   def set_access_code
