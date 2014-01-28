@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# ruby version
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -7,7 +10,13 @@ gem 'rails', '4.0.2'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
+
+# Use Twitter Bootstrap
+# gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
+gem 'therubyracer'
+gem 'less-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -43,3 +52,50 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  # Use capybara as the test tool
+  gem 'capybara'
+
+  # Use rspec as the test tool
+  gem 'rspec-rails'
+
+  # Use guard
+  gem 'guard-rspec'
+  gem 'growl'
+
+  gem 'webrat'
+  gem 'database_cleaner'
+
+  gem 'factory_girl_rails'
+
+  gem 'simplecov', :require => false
+
+  gem "better_errors"
+  gem "binding_of_caller"
+
+  # Use spork for speed of server
+  gem 'spork'
+end
+
+# Use devise as the flexible authentication solution
+gem 'devise'
+
+# Use Haml for views
+gem 'haml-rails'
+gem 'erb2haml'
+
+gem 'rails-i18n'
+
+# Use kaminari for paginate
+gem 'kaminari'
+
+# Use the plugin which hide records of deleting them, being to recover them.
+gem 'paranoia'
+
+# Use to set environment variables on development machines
+gem 'dotenv-rails'
+
+# Use OmniAuth for authenticate
+gem 'twitter'
+gem 'omniauth-twitter'

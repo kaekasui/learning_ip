@@ -1,0 +1,22 @@
+.panel.panel-default
+  .panel-heading= I18n.t("account.login")
+  .panel-body
+    - flash[:error] = devise_error_messages!
+    = form_for(resource, html: { role: "form" }, as: resource_name, url: session_path(resource_name)) do |f| 
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: "form-control"
+      - if devise_mapping.rememberable?
+        .checkbox
+          %label
+            = f.check_box :remember_me
+            = f.label :remember_me
+      = f.submit I18n.t("actions.login"), class: "btn btn-default"
+
+    %hr
+    = render "api_login"
+
+

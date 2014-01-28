@@ -1,0 +1,14 @@
+ja:
+  brand: "アプレンダー"
+  brand_sp: "[aprende.]"
+  service: "情報処理技術者試験対策 e-Lerningサービス"
+
+  account:
+    login: "ログイン"
+    logout: "ログアウト"
+    new: "無料新規登録"
+    twitter_login: "Twitterでログイン"
+
+  actions:
+    create: "登録する"
+    login: "ログインする"
