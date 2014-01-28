@@ -17,5 +17,4 @@ describe NoticeMailer do
       expect(mail.from).to have_content(ENV["MAIL_ADDRESS"])
     end
   end
-
 end
