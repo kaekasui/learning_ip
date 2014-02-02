@@ -7,9 +7,10 @@
       .form-group
         = f.label :email, class: "control-label"
         = f.text_field :email, readonly: true, class: "form-control"
-      .form-group
-        = f.label :current_password, class: "control-label"
-        = f.password_field :current_password, class: "form-control"
+      - if resource.encrypted_password.present?
+        .form-group
+          = f.label :current_password, class: "control-label"
+          = f.password_field :current_password, class: "form-control"
       .form-group
         = f.label :password, I18n.t("account.new_password"), class: "control-label"
         = f.password_field :password, autocomplete: "off", class: "form-control"
