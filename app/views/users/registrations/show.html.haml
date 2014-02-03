@@ -41,12 +41,10 @@
             = link_to "@" + @twitter_user.screen_name, "https://twitter.com/#{@twitter_user.screen_name}"
           %td
             - if current_user.provider == "twitter"
-              %button.btn.btn-default.disabled
-                = link_to I18n.t("actions.unregist_twitter"), "#"
+              .btn.btn-default.disabled= link_to I18n.t("actions.unregist_twitter"), disconnect_omniauth_provider_path(provider: "twitter"), method: :delete, id: "disconnect"
             - else
-              %button.btn.btn-default
-                = link_to I18n.t("actions.unregist_twitter"), "#"
+              .btn.btn-default= link_to I18n.t("actions.unregist_twitter"), disconnect_omniauth_provider_path(provider: "twitter"), method: :delete, id: "disconnect"
         - else
           %td= "-"
           %td
-            %button.btn.btn-default= link_to I18n.t("actions.regist_twitter"), "#"
+            .btn.btn-default= link_to I18n.t("actions.regist_twitter"), user_omniauth_authorize_path(provider: "twitter"), id: "connect"

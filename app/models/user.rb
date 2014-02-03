@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   before_create :set_access_code
   validates :email, uniqueness: false, presence: false
 
+  def same_code_twitter
+    User.where(code: self.code, provider: "twitter").first
+  end
+
   private
 
   def set_access_code
