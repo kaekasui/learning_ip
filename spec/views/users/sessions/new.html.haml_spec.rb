@@ -20,7 +20,7 @@ describe 'users/sessions/new' do
 
     it 'display the twitter link' do
       render
-      expect(rendered).to have_selector("button.btn > a", content: I18n.t("account.twitter_login"))
+      expect(rendered).to have_selector(".btn > a", content: I18n.t("account.twitter_login"))
     end
   end
 end

@@ -13,6 +13,9 @@ feature 'sign_up_and_sign_in' do
 
     expect(page.status_code).to eq 200
     expect(page).to have_content(I18n.t("devise.registrations.signed_up"))
+
+    click_link I18n.t("account.logout")
+    expect(page).to have_content(I18n.t("devise.sessions.signed_out"))
   end
   
   scenario 'sign in with non-logged-in user.' do
@@ -24,5 +27,8 @@ feature 'sign_up_and_sign_in' do
     click_button I18n.t("actions.login")
     expect(page.status_code).to eq 200
     expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
+
+    click_link I18n.t("account.logout")
+    expect(page).to have_content(I18n.t("devise.sessions.signed_out"))
   end
 end

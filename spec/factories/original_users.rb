@@ -3,5 +3,6 @@ FactoryGirl.define do
     email "original_user@example.com"
     password "password"
     type "OriginalUser"
+    admin false
   end
 end

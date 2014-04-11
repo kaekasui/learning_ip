@@ -4,11 +4,15 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    = link_to I18n.t(".brand"), root_path, class: "navbar-brand"
+    = link_to I18n.t("brand.name"), root_path, class: "navbar-brand"
   .collapse.navbar-collapse
     %ul.nav.navbar-nav.navbar-right
-      - if user_signed_in?
-        %li= link_to t("account.logout"), destroy_user_session_path, method: :delete
+      - if user_signed_in? and current_user
+        %li= link_to t("menu.admin"), admin_root_path if current_user.admin
+        %li
+          = link_to content_tag(:i, "", class: "glyphicon glyphicon-user") + t("account.status"), users_profile_path, id: "profile"
+        %li
+          = link_to content_tag(:i, "", class: "glyphicon glyphicon-leaf") + t("account.logout"), destroy_user_session_path, method: :delete, id: "logout"
       - else
         %li= link_to t("account.new"), new_user_registration_path
-        %li= link_to t("account.login"), new_user_session_path
+        %li= link_to t("account.login"), new_user_session_path, id: "login"

@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading= I18n.t("account.email")
+  .panel-body
+    = form_for(@user, html: { role: "form" }, url: users_send_email_path, html: { method: :post }) do |f|
+      .form-group
+        = f.label :email
+        = f.text_field :email, value: current_user.email, class: "form-control"
+      .form-group
+        = f.submit I18n.t("actions.mail"), class: "btn btn-default"
+    %hr
+      / %button.btn.btn-default(type="button")
+      /  =# link_to I18n.t("account.delete"), registration_path(resource_name), data: { confirm: "are you sure?" }, method: :delete

@@ -27,6 +27,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
 RSpec.configure do |config|
   Spork.each_run do
     FactoryGirl.reload
@@ -37,6 +40,19 @@ RSpec.configure do |config|
 
   # for devise test helper
   config.include Devise::TestHelpers, :type => :controller
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
   #
