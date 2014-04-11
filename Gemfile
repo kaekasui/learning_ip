@@ -77,6 +77,16 @@ group :development, :test do
 
   # Use spork for speed of server
   gem 'spork'
+
+  # Give placeholder for the factory
+  gem 'faker'
+
+  # View the coverage of application
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+
+  # Open the browser for test
+  gem 'launchy'
 end
 
 # Use devise as the flexible authentication solution
