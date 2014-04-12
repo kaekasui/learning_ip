@@ -37,4 +37,37 @@ feature 'original users update the profile.' do
  
     expect(page).to have_content(I18n.t("messages.update_user_name"))
   end
+
+  # 異なるメールアドレスを更新する
+  scenario 'updates the defferent email.' do
+    click_link 'email'
+    expect(page.status_code).to eq 200
+
+    fill_in 'virtual_user_email', with: "abc" + @user.email
+    click_button I18n.t("actions.mail")
+    expect(page).to have_content(I18n.t("messages.send_mail"))
+  end
+
+  # 同じメールアドレスを更新する
+  scenario 'updates the same email.' do
+    click_link 'email'
+    expect(page.status_code).to eq 200
+
+    fill_in 'virtual_user_email', with: @user.email
+    click_button I18n.t("actions.mail")
+    expect(page).to have_content(I18n.t("messages.send_mail"))
+  end
+
+  # 自由書式の文字列をメールアドレスとして更新する
+  scenario 'updates the email as string of free format.' do
+    click_link 'email'
+    expect(page.status_code).to eq 200
+
+    fill_in 'virtual_user_email', with: "abcde"
+    click_button I18n.t("actions.mail")
+    expect(page.status_code).to eq 200
+
+    url = URI.parse(page.current_url).path
+    expect(url).to eq users_send_email_path
+  end
 end 
