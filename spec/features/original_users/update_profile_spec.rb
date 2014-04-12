@@ -70,4 +70,40 @@ feature 'original users update the profile.' do
     url = URI.parse(page.current_url).path
     expect(url).to eq users_send_email_path
   end
+
+  # パスワードを更新する
+  scenario 'updates the password.' do
+    click_link 'password'
+    expect(page.status_code).to eq 200
+
+    fill_in 'user_current_password', with: @user.password
+    fill_in 'user_password', with: @user.password + "123"
+    fill_in 'user_password_confirmation', with: @user.password + "123"
+    click_button I18n.t("actions.update")
+    expect(page).to have_content(I18n.t("devise.registrations.updated"))
+  end
+
+  # パスワード再入力で異なるパスワードを更新する
+  scenario 'updates the defferent password confirmation.' do
+    click_link 'password'
+    expect(page.status_code).to eq 200
+
+    fill_in 'user_current_password', with: @user.password
+    fill_in 'user_password', with: @user.password + "123"
+    click_button I18n.t("actions.update")
+
+    expect(page).to have_content(I18n.t("errors.messages.confirmation", attribute: User.human_attribute_name(:password)))
+  end
+
+  # 現在のパスワードを空にして更新する
+  scenario 'updates the empty current password.' do
+    click_link 'password'
+    expect(page.status_code).to eq 200
+
+    fill_in 'user_password', with: @user.password + "123"
+    fill_in 'user_password_confirmation', with: @user.password + "123"
+    click_button I18n.t("actions.update")
+
+    expect(page).to have_content(I18n.t("errors.messages.empty"))
+  end
 end 
