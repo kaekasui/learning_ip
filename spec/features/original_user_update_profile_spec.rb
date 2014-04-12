@@ -14,47 +14,6 @@ feature 'update the profile information, and send mail.' do
     visit users_profile_path
   end
 
-  scenario 'original user update the empty name.' do
-    # editing name page.
-    click_link 'name'
-    expect(page.status_code).to eq 200
-
-    # update the name.
-    fill_in 'original_user_name', with: ""
-    click_button I18n.t("actions.update")
-    expect(page).to have_content(I18n.t("messages.update_user_name"))
-  end
-
-  scenario 'original user update the new name.' do
-    # editing name page.
-    click_link 'name'
-    expect(page.status_code).to eq 200
-
-    # update the name.
-    fill_in 'original_user_name', with: "Nickname"
-    click_button I18n.t("actions.update")
-    expect(page).to have_content(I18n.t("messages.update_user_name"))
-    expect(page).to have_content("Nickname")
-  end
-
-  scenario 'original user update the name.' do
-    # editing name page.
-    click_link 'name'
-    expect(page.status_code).to eq 200
-
-    # update the name.
-    fill_in 'original_user_name', with: "Nickname"
-    click_button I18n.t("actions.update")
-    expect(page).to have_content(I18n.t("messages.update_user_name"))
-
-    # update the name once again.
-    click_link 'name'
-    fill_in 'original_user_name', with: "Nickname2"
-    click_button I18n.t("actions.update")
-    expect(page).to have_content(I18n.t("messages.update_user_name"))
-    expect(page).to have_content("Nickname2")
-  end
-
   scenario 'original user update the same email.' do
     # editing email page.
     click_link 'email'
