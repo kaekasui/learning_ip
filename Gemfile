@@ -83,6 +83,8 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
 
+  gem 'ci_reporter'
+
   # Open the browser for test
   gem 'launchy'
 end
