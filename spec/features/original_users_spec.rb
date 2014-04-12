@@ -4,7 +4,7 @@ feature 'original user' do
 
   # ログイン/ログアウトする
   scenario 'logs in and logs out.' do
-    user = create(:user)
+    user = create(:original_user)
 
     # ログイン
     login user
@@ -17,7 +17,7 @@ feature 'original user' do
   end
 
   # 会員登録する
-  scenario 'creates a account.' do
+  scenario 'creates an account.' do
 
     # 会員登録
     visit new_user_registration_path
