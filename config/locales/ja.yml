@@ -26,6 +26,8 @@ ja:
     mail: "送信する"
   admin_menu:
     dashboard: "ダッシュボード"
+    case: "問題"
+    category: "カテゴリ"
   buttons:
     config: "設定"
     edit_email: "メールアドレスの変更"
