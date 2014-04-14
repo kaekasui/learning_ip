@@ -17,6 +17,7 @@ feature 'twitter users update the profile.' do
     click_button I18n.t("actions.create")
 
     expect(page).to have_content(I18n.t("messages.update_user_name"))
+    expect(page).to have_selector("td#name", text: I18n.t("account.unregistered"))
   end
 
   # ニックネームを更新する
@@ -29,6 +30,7 @@ feature 'twitter users update the profile.' do
 
     expect(page).to have_content(I18n.t("messages.update_user_name"))
     expect(page).to have_content("nickname")
+    expect(page).to have_selector("td#name", text: "name")
   end
 
   # ニックネームを再更新する
@@ -45,7 +47,7 @@ feature 'twitter users update the profile.' do
     click_button I18n.t("actions.update")
  
     expect(page).to have_content(I18n.t("messages.update_user_name"))
-    expect(page).to have_content("nickname2")
+    expect(page).to have_selector("td#name", text: "nickname2")
   end
 
   # 新しくメールアドレスを登録する
