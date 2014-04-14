@@ -24,6 +24,8 @@ ja:
     unregist_twitter: "Twitter連携を解除する"
     update: "更新する"
     mail: "送信する"
+  admin_menu:
+    dashboard: "ダッシュボード"
   buttons:
     config: "設定"
     edit_email: "メールアドレスの変更"
