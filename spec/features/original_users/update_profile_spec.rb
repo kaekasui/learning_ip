@@ -46,6 +46,12 @@ feature 'original users update the profile.' do
     fill_in 'virtual_user_email', with: "abc" + @user.email
     click_button I18n.t("actions.mail")
     expect(page).to have_content(I18n.t("messages.send_mail"))
+
+   # メールに送信したURLに接続
+    user = VirtualUser.find_by_email("abc" + @user.email)
+    visit update_users_email_path(code: user.code)
+    expect(page).to have_content(I18n.t("messages.update_user_email"))
+    expect(OriginalUser.find_by_code(user.code).email).to eq "abc" + @user.email
   end
 
   # 同じメールアドレスを更新する
@@ -55,7 +61,14 @@ feature 'original users update the profile.' do
 
     fill_in 'virtual_user_email', with: @user.email
     click_button I18n.t("actions.mail")
+    expect(current_path).to eq users_profile_path
     expect(page).to have_content(I18n.t("messages.send_mail"))
+
+    # メールに送信したURLに接続
+    user = VirtualUser.find_by_email(@user.email)
+    visit update_users_email_path(code: user.code)
+    expect(page).to have_content(I18n.t("messages.update_user_email"))
+    expect(OriginalUser.find_by_code(user.code).email).to eq @user.email
   end
 
   # 自由書式の文字列をメールアドレスとして更新する
@@ -67,8 +80,7 @@ feature 'original users update the profile.' do
     click_button I18n.t("actions.mail")
     expect(page.status_code).to eq 200
 
-    url = URI.parse(page.current_url).path
-    expect(url).to eq users_send_email_path
+    expect(current_path).to eq users_send_email_path
   end
 
   # パスワードを更新する
