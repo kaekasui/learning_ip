@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading= I18n.t("admin_menu.category")
+  .panel-body
+    .btn.btn-default= link_to I18n.t("actions.add"), new_admin_category_path
+  %table.table
+    - @admin_categories.each do |admin_category|
+      %tr
+        %td= admin_category.name
+        %td= link_to 'Edit', edit_admin_category_path(admin_category)
+        %td= link_to 'Destroy', ['admin', admin_category], :method => :delete, :data => { :confirm => 'Are you sure?' }
