@@ -1,15 +1,13 @@
 class Admin::CategoriesController < ApplicationController
+  respond_to :js
   before_action :set_admin_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @admin_categories = Category.all
+    @admin_categories = Category.all.order_updated_at
+    @admin_category = Category.new
   end
 
   def show
-  end
-
-  def new
-    @admin_category = Category.new
   end
 
   def edit
@@ -17,16 +15,8 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @admin_category = Category.new(admin_category_params)
-
-    respond_to do |format|
-      if @admin_category.save
-        format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @admin_category }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @admin_category.errors, status: :unprocessable_entity }
-      end
-    end
+    @admin_category.save
+    respond_with @admin_category, location: admin_categories_path
   end
 
   def update
