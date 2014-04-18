@@ -97,6 +97,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 
 gem 'rails-i18n'
+gem 'i18n_generators'
 
 # Use kaminari for paginate
 gem 'kaminari'

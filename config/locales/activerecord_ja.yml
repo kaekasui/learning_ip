@@ -1,8 +1,12 @@
 ja:
   activerecord:
+    models:
+      category: "カテゴリ"
+      section: "セクション"
     attributes:
       category:
         name: "カテゴリ名"
+      section: "セクション名"
       user:
         current_password: "現在のパスワード"
         email: "メールアドレス"
