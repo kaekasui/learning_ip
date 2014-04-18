@@ -1,0 +1,17 @@
+%table
+  %tr
+    %th Name
+    %th Deleted at
+    %th
+    %th
+    %th
+
+  - @admin_sections.each do |admin_section|
+    %tr
+      %td= admin_section.name
+      %td= admin_section.deleted_at
+      %td= link_to 'Show', ['admin', admin_section]
+      %td= link_to 'Edit', edit_admin_section_path(admin_section)
+      %td= link_to 'Destroy', ['admin', admin_section], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to 'New Section', new_admin_section_path

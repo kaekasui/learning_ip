@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @admin_section.name
+%p
+  %b Deleted at:
+  = @admin_section.deleted_at
+
+= link_to 'Edit', edit_admin_section_path(@admin_section)
+\|
+= link_to 'Back', admin_sections_path

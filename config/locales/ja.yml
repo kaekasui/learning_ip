@@ -29,6 +29,7 @@ ja:
     dashboard: "ダッシュボード"
     case: "問題"
     category: "カテゴリ"
+    section: "試験区分"
   buttons:
     config: "設定"
     edit_email: "メールアドレスの変更"
