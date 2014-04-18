@@ -1,7 +1,1 @@
-.panel.panel-default
-  .panel-heading= I18n.t("admin_menu.category")
-  .panel-body
-    = form_for ['admin', @admin_category], remote: true do |f|
-      = f.text_field :name, placeholder: I18n.t("messages.new_category"), class: "form-control"
-  %table.table.category
-    = render partial: @admin_categories
+= render partial: 'application/admin_index', locals: { model: Category, new_item: @admin_category, items: @admin_categories }

@@ -1,15 +1,13 @@
 class Admin::SectionsController < ApplicationController
+  respond_to :js
   before_action :set_admin_section, only: [:show, :edit, :update, :destroy]
 
   def index
     @admin_sections = Section.all
+    @admin_section = Section.new
   end
 
   def show
-  end
-
-  def new
-    @admin_section = Section.new
   end
 
   def edit
@@ -17,16 +15,8 @@ class Admin::SectionsController < ApplicationController
 
   def create
     @admin_section = Section.new(admin_section_params)
-
-    respond_to do |format|
-      if @admin_section.save
-        format.html { redirect_to ['admin', @admin_section], notice: 'Section was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @admin_section }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @admin_section.errors, status: :unprocessable_entity }
-      end
-    end
+    @admin_section.save
+    respond_with @admin_section, location: admin_sections_path
   end
 
   def update
