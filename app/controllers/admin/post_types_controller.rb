@@ -22,7 +22,7 @@ class Admin::PostTypesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_post_type.update(admin_post_type_params)
-        format.html { redirect_to @admin_post_type, notice: 'Post type was successfully updated.' }
+        format.html { redirect_to ['admin', @admin_post_type], notice: 'Post type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -45,6 +45,6 @@ class Admin::PostTypesController < ApplicationController
     end
 
     def admin_post_type_params
-      params.require(:post_type).permit(:name, :deleted_at)
+      params.require(:post_type).permit(:name, :display)
     end
 end
