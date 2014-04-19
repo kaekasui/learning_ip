@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Admin::PostType do
+describe PostType do
 end
