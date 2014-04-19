@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-    @posts = Post.all
+    @post_types = PostType.display_type
   end
 end

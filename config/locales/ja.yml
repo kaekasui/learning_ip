@@ -42,6 +42,7 @@ ja:
     service: "情報処理技術者試験対策 e-Lerningサービス"
   home:
     inquiry: "お問い合わせ"
+    continue: "続きを見る..."
   menu:
     admin: "管理"
   messages:
