@@ -29,7 +29,8 @@ ja:
     dashboard: "ダッシュボード"
     case: "問題"
     category: "カテゴリ"
-    post: "更新情報"
+    post: "告知情報"
+    post_type: "告知情報種類"
     section: "試験区分"
   buttons:
     config: "設定"

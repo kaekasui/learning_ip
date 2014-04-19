@@ -3,6 +3,7 @@ ja:
     models:
       category: "カテゴリ"
       section: "セクション"
+      post_type: "告知情報種類"
     attributes:
       category:
         name: "カテゴリ名"

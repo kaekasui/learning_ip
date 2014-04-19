@@ -20,6 +20,7 @@ LearningIp::Application.routes.draw do
     root 'dashboard#index'
     resources :categories, except: [:show, :new]
     resources :posts
+    resources :post_types
     resources :sections, except: [:show, :new]
   end
 end
