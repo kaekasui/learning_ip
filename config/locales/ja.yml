@@ -49,8 +49,10 @@ ja:
   messages:
     new_item: "%{model}名を追加"
     change_email: "メールアドレスを変更します。"
+    inquiry: "ご意見、ご感想、その他お問い合わせ内容を入力してください。"
     update_user_email: "メールアドレスを更新しました。"
     update_user_name: "ニックネームを更新しました。"
+    send_inquiry: "お問い合わせ内容を送信いたしました。"
     send_mail: "メールを送信しました。"
   errors:
     messages:

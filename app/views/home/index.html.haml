@@ -9,7 +9,6 @@
             = post.title
         = I18n.t("home.continue")
 .col-md-6
-  .panel.panel-default
-    .panel-heading
-      = I18n.t("home.inquiry")
-    .panel-body
+  = form_for @inquiry do |f|
+    = f.text_area :content, placeholder: I18n.t("messages.inquiry"), class: "form-control"
+    = f.submit class: "btn btn-default"
