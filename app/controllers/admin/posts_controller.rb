@@ -55,6 +55,6 @@ class Admin::PostsController < ApplicationController
     end
 
     def admin_post_params
-      params.require(:post).permit(:post_at, :timestamp, :title, :content, :deleted_at)
+      params.require(:post).permit(:post_at, :timestamp, :title, :content, :post_type_id)
     end
 end

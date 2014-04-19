@@ -1,10 +1,12 @@
-%table
-  - @admin_posts.each do |admin_post|
-    %tr
-      %td= admin_post.post_at
-      %td= admin_post.title
-      %td= link_to 'Show', ['admin', admin_post]
-      %td= link_to 'Edit', edit_admin_post_path(admin_post)
-      %td= link_to 'Destroy', ['admin', admin_post], :method => :delete, :data => { :confirm => 'Are you sure?' }
+.panel.panel-default
+  .panel-heading= Post.model_name.human
+  %table.table
+    - @admin_posts.each do |admin_post|
+      %tr
+        %td= l admin_post.post_at
+        %td= admin_post.post_type.name
+        %td= link_to admin_post.title, ['admin', admin_post]
+        %td= link_to 'Edit', edit_admin_post_path(admin_post)
+        %td= link_to 'Destroy', ['admin', admin_post], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 = link_to 'New Post', new_admin_post_path

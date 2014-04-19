@@ -8,7 +8,10 @@
 
   .field
     = f.label :post_at
-    = f.text_field :post_at
+    = f.datetime_select :post_at, datetime_separator: "　　", include_seconds: true, use_month_numbers: true
+  .field
+    = f.label :post_type_id
+    = f.select :post_type_id, PostType.all.map {|p| [p.name, p.id]}, {}
   .field
     = f.label :title
     = f.text_field :title
