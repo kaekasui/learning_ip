@@ -1,0 +1,17 @@
+.col-md-7
+  .panel.panel-default
+    %table.table.table-condensed
+      - @posts.each do |post|
+        %tr
+          %td= post.post_at
+          %td= post.title
+  .panel.panel-default
+    %table.table.table-condensed
+      - @posts.each do |post|
+        %tr
+          %td= post.post_at
+          %td= post.title
+.col-md-5
+  .panel.panel-default
+    .panel-heading
+    .panel-body
