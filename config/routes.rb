@@ -19,6 +19,7 @@ LearningIp::Application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
     resources :categories, except: [:show, :new]
+    resources :inquiries
     resources :posts
     resources :post_types
     resources :sections, except: [:show, :new]

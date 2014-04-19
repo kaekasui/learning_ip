@@ -1,0 +1,9 @@
+.panel.panel-default
+  .panel-heading= Inquiry.model_name.human
+  %table.table
+    - @admin_inquiries.each do |admin_inquiry|
+      %tr
+        %td= l admin_inquiry.created_at
+        %td= admin_inquiry.content
+        %td= admin_inquiry.user_id
+        %td= link_to 'Destroy', ['admin', admin_inquiry], :method => :delete, :data => { :confirm => 'Are you sure?' }
