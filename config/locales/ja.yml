@@ -44,6 +44,8 @@ ja:
   home:
     inquiry: "お問い合わせ"
     continue: "続きを見る..."
+  post_type:
+    all: "すべて"
   menu:
     admin: "管理"
   messages:

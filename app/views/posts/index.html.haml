@@ -1,0 +1,14 @@
+%ul.nav.nav-tabs#post-tab
+  - @post_types.each do |post_type|
+    %li(class="#{'active' if post_type.id==@type}")= link_to post_type.name, posts_path(anchor: post_type.id), "data-toggle" => "tab"
+
+.tab-content
+  - @post_types.each do |post_type|
+    .tab-pane(id="#{post_type.id}" class="#{'active' if post_type.id==@type}")
+      %br
+      %table.table.table-default
+        - post_type.posts.each do |post|
+          %tr
+            %td= post.post_type.name
+            %td= l post.post_at
+            %td= post.title

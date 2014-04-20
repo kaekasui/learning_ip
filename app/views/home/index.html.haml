@@ -7,7 +7,7 @@
           %p
             = l post.post_at
             = post.title
-        = I18n.t("home.continue")
+        = link_to I18n.t("home.continue"), posts_path(type: post_type.id)
 .col-md-6
   = form_for @inquiry do |f|
     = f.text_area :content, placeholder: I18n.t("messages.inquiry"), class: "form-control"
