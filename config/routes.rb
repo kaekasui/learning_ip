@@ -17,7 +17,7 @@ LearningIp::Application.routes.draw do
   end
 
   resources :inquiries, only: [:create]
-  resources :posts, only: [:index]
+  resources :posts, only: [:index, :show]
 
   namespace :admin do
     root 'dashboard#index'

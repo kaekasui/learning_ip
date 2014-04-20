@@ -6,7 +6,7 @@
         - post_type.posts.limit(5).each do |post|
           %p
             = l post.post_at
-            = post.title
+            = link_to post.title, post
         = link_to I18n.t("home.continue"), posts_path(type: post_type.id)
 .col-md-6
   = form_for @inquiry do |f|

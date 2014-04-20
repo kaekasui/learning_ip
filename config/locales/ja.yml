@@ -1,4 +1,10 @@
 ja:
+  time:
+    formats:
+      default: '%Y-%m-%d'
+      long: '%B %d, %Y'
+      short: '%b %d'
+ 
   account:
     edit_email: "メールアドレスの変更"
     edit_password: "パスワードの変更"
