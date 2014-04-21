@@ -7,7 +7,7 @@
     %li.list-group-item= I18n.t("menu.category")
     - @section.categories.each do |category|
       %li.list-group-item
-        = category.name
+        = link_to category.name, section_category_path(section_id: @section.id, id: category.id)
         %span.badge= category.cases.count
 .col-md-9
   .panel.panel-default
