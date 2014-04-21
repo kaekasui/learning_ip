@@ -1,5 +1,8 @@
 .col-md-3
+  %h4= @section.name
   %ul.list-group
-    - @sections.each do |section|
-      %li.list-group-item= link_to section.name, section
+    - @section.categories.each do |category|
+      %li.list-group-item= category.name
 .col-md-9
+  .panel.panel-default
+    .panel-body
