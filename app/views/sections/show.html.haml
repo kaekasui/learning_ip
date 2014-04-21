@@ -1,0 +1,5 @@
+.col-md-3
+  %ul.list-group
+    - @sections.each do |section|
+      %li.list-group-item= link_to section.name, section
+.col-md-9
