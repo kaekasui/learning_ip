@@ -5,7 +5,9 @@
   %h4= @section.name
   %ul.list-group
     - @section.categories.each do |category|
-      %li.list-group-item= category.name
+      %li.list-group-item
+        = category.name
+        %span.badge= category.cases.count
 .col-md-9
   .panel.panel-default
     .panel-body
