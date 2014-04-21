@@ -51,6 +51,11 @@ ja:
     page: "トップページ"
     inquiry: "お問い合わせ"
     continue: "続きを見る..."
+  dashboard:
+    all_users: "総ユーザー"
+    all_original_users: "一般ユーザー"
+    all_twitter_users: "Twitterユーザー"
+    users_count: "ユーザー数"
   post_type:
     all: "すべて"
   menu:

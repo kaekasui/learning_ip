@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading= I18n.t("dashboard.users_count")
+  .panel-body
+    %table.table
+      %tr
+        %td= I18n.t("dashboard.all_users")
+        %td= @users.count
+      %tr
+        %td= I18n.t("dashboard.all_original_users")
+        %td= @users.find_all_by_provider(nil).count
+      %tr
+        %td= I18n.t("dashboard.all_twitter_users")
+        %td= @users.find_all_by_provider("twitter").count
