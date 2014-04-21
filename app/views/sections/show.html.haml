@@ -4,6 +4,7 @@
 .col-md-3
   %h4= @section.name
   %ul.list-group
+    %li.list-group-item= I18n.t("menu.category")
     - @section.categories.each do |category|
       %li.list-group-item
         = category.name

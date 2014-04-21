@@ -60,6 +60,7 @@ ja:
     all: "すべて"
   menu:
     admin: "管理"
+    category: "◇カテゴリごとの学習"
   messages:
     new_item: "%{model}名を追加"
     change_email: "メールアドレスを変更します。"
