@@ -1,6 +1,7 @@
 ja:
   activerecord:
     models:
+      case: "問題"
       category: "カテゴリ"
       section: "セクション"
       inquiry: "お問い合わせ"

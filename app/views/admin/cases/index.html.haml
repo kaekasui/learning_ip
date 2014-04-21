@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading= Case.model_name.human 
+  %table.table
+    - @admin_cases.each do |admin_case|
+      %tr
+        %td= link_to admin_case.id, ['admin', admin_case]
+        %td= admin_case.section.name
+        %td= admin_case.category.name
+        %td= admin_case.age
+        %td= link_to 'Edit', edit_admin_case_path(admin_case)
+        %td= link_to 'Destroy', ['admin', admin_case], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to 'New Case', new_admin_case_path

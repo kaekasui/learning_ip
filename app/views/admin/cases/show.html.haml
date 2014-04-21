@@ -1,0 +1,34 @@
+%p#notice= notice
+
+%p
+  %b Section:
+  = @admin_case.section.name
+%p
+  %b Category:
+  = @admin_case.category.name
+%p
+  %b Age:
+  = @admin_case.age
+%p
+  %b Content:
+  = @admin_case.content
+%p
+  %b Answer a:
+  = @admin_case.answer_a
+%p
+  %b Answer b:
+  = @admin_case.answer_b
+%p
+  %b Answer c:
+  = @admin_case.answer_c
+%p
+  %b Answer d:
+  = @admin_case.answer_d
+%p
+  %b Answer:
+  = @admin_case.answer
+%p
+  %b Comment:
+  = @admin_case.comment
+= link_to 'Edit', edit_admin_case_path(@admin_case)
+= link_to 'Back', admin_cases_path
