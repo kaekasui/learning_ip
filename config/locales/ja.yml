@@ -48,6 +48,7 @@ ja:
     subname: "[aprende.]"
     service: "情報処理技術者試験対策 e-Lerningサービス"
   home:
+    page: "トップページ"
     inquiry: "お問い合わせ"
     continue: "続きを見る..."
   post_type:
