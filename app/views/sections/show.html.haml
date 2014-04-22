@@ -14,15 +14,16 @@
     .panel-body
       %b= I18n.t("setting.category_test")
       = form_for @setting, remote: true, html: { role: "form", class: "form-horizontal" } do |f|
+        - radio_disabled = current_user ? false : true
         .radio
           %label
-            = f.radio_button :radio_category, '0'
+            = f.radio_button :radio_category, '0', { disabled: radio_disabled }
             = I18n.t("setting.test_case_all")
-        = f.radio_button :radio_category, '1'
+        = f.radio_button :radio_category, '1', { disabled: radio_disabled }
         .form-group
           = f.label :test_case, class: "col-sm-2 control-label"
           .col-sm-10= f.text_field :test_case, class: "form-control"
-        = f.submit class: "btn btn-default", data: { disable_with: "Sending..." }
+        = f.submit class: "btn btn-default #{"disabled" unless current_user}", data: { disable_with: "Sending..." }
         = hidden_field_tag :section_id, @section.id
       %hr
       %b= I18n.t("setting.test")
