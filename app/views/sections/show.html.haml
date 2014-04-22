@@ -2,9 +2,8 @@
   %li= link_to I18n.t("home.page"), root_path
   %li.active= @section.name
 .col-md-3
-  %h4= @section.name
   %ul.list-group
-    %li.list-group-item= I18n.t("menu.category")
+    %li.list-group-item= @section.name
     - @section.categories.each do |category|
       %li.list-group-item
         = link_to category.name, section_category_path(section_id: @section.id, id: category.id)
