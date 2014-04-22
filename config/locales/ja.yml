@@ -58,9 +58,13 @@ ja:
     users_count: "ユーザー数"
   post_type:
     all: "すべて"
+  setting:
+    test_case_all: "すべて"
+    category_test: "カテゴリ別の出題"
+    test: "模擬試験"
   menu:
     admin: "管理"
-    category: "◇カテゴリごとの学習"
+    setting: "設定"
   messages:
     new_item: "%{model}名を追加"
     change_email: "メールアドレスを変更します。"
