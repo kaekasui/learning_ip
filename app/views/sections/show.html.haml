@@ -23,6 +23,12 @@
         .form-group
           = f.label :test_case, class: "col-sm-2 control-label"
           .col-sm-10= f.text_field :test_case, class: "form-control"
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            .checkbox
+              %label
+                = f.check_box :random_check_category
+                = f.label :random_check_category
         = f.submit class: "btn btn-default #{"disabled" unless current_user}", data: { disable_with: "Sending..." }
         = hidden_field_tag :section_id, @section.id
       %hr
