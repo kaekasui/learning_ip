@@ -14,6 +14,7 @@ ja:
         name: "セクション名"
       setting:
         test_case: "問題表示数"
+        test_time: "制限時間"
         random_check_category: "ランダムに表示する"
       user:
         current_password: "現在のパスワード"

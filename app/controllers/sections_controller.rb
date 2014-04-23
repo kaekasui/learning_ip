@@ -3,9 +3,9 @@ class SectionsController < ApplicationController
 
   def show
     @setting = if current_user
-      Setting.where(user_id: current_user.id).first || Setting.new(radio_category: 1, test_case: 5)
+      Setting.where(user_id: current_user.id).first || Setting.new(radio_category: 1, test_case: 5, test_time: 30, radio_time: 0)
     else
-      Setting.new(radio_category: 1, test_case: 5)
+      Setting.new(radio_category: 1, test_case: 5, test_time: 30, radio_time: 0)
     end
   end
 
