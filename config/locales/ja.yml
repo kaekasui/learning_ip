@@ -62,7 +62,7 @@ ja:
     category_test: "カテゴリ別の出題"
     no_time: "なし"
     test: "模擬試験"
-    test_case_all: "すべて"
+    all: "すべて"
   menu:
     admin: "管理"
     setting: "設定"

@@ -17,19 +17,19 @@
         - radio_disabled = current_user ? false : true
         %table.table
           %tr
-            %td(rowspan=2)= f.label :test_case
-            %td= f.radio_button :radio_category, '0', { disabled: radio_disabled }
-            %td= I18n.t("setting.test_case_all")
+            %td(rowspan=2)= f.label :display_cases_count
+            %td= f.radio_button :all_or_count, '0', { disabled: radio_disabled }
+            %td= I18n.t("setting.all")
           %tr
-            %td= f.radio_button :radio_category, '1', { disabeld: radio_disabled }
+            %td= f.radio_button :all_or_count, '1', { disabeld: radio_disabled }
             %td
-              .form-group= f.text_field :test_case, class: "form-control"
+              .form-group= f.text_field :display_cases_count, class: "form-control"
           %tr
             %td(rowspan=2)= f.label :test_time
-            %td= f.radio_button :radio_time, '0', { disabled: radio_disabled }
+            %td= f.radio_button :non_or_time, '0', { disabled: radio_disabled }
             %td= I18n.t("setting.no_time")
           %tr
-            %td= f.radio_button :radio_time, '1', { disabled: radio_disabled }
+            %td= f.radio_button :non_or_time, '1', { disabled: radio_disabled }
             %td
               .form-group= f.text_field :test_time, class: "form-control"
           %tr
@@ -38,8 +38,8 @@
             %td
               .checkbox
                 %label
-                  = f.check_box :random_check_category
-                  = f.label :random_check_category
+                  = f.check_box :random_check
+                  = f.label :random_check
         = f.submit class: "btn btn-default #{"disabled" unless current_user}", data: { disable_with: "Sending..." }
         = hidden_field_tag :section_id, @section.id
       %hr

@@ -26,6 +26,6 @@ class SettingsController < ApplicationController
     end
 
     def setting_params
-      params.require(:setting).permit(:test_case, :test_time, :radio_category, :radio_time, :random_check_category)
+      params.require(:setting).permit(:display_cases_count, :test_time, :all_or_count, :non_or_time, :random_check)
     end
 end
