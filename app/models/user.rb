@@ -4,11 +4,24 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:twitter]
   acts_as_paranoid
 
+  has_many :inquiries
   before_create :set_access_code
   validates :email, uniqueness: false, presence: false
 
+  def same_code_original
+    User.where(code: self.code, provider: nil).first
+  end
+
   def same_code_twitter
     User.where(code: self.code, provider: "twitter").first
+  end
+
+  def display_name
+    if self.name.blank?
+      self.email if self.provider.nil?
+    else
+      self.name
+    end
   end
 
   private

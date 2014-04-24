@@ -1,6 +1,21 @@
 ja:
   activerecord:
+    models:
+      case: "問題"
+      category: "カテゴリ"
+      section: "セクション"
+      inquiry: "お問い合わせ"
+      post: "告知情報"
+      post_type: "告知情報種類"
     attributes:
+      category:
+        name: "カテゴリ名"
+      section:
+        name: "セクション名"
+      setting:
+        display_cases_count: "問題表示数"
+        test_time: "制限時間"
+        random_check: "ランダムに表示する"
       user:
         current_password: "現在のパスワード"
         email: "メールアドレス"

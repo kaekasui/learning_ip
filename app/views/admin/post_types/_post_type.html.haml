@@ -1,0 +1,7 @@
+%tr
+  %td
+    - if post_type.display
+      %span.glyphicon.glyphicon-ok
+  %td= post_type.name
+  %td= link_to 'Edit', edit_admin_post_type_path(post_type)
+  %td= link_to 'Destroy', ['admin', post_type], method: :delete, data: { confirm: 'Are you sure?' }

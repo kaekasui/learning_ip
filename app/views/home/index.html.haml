@@ -1,0 +1,22 @@
+.row
+  - @sections.each do |section|
+    %div(class="col-md-#{@section_size}")
+      .panel.panel-default
+        .panel-body
+          = link_to section.name, section
+
+.row
+  .col-md-6
+    - @post_types.each do |post_type|
+      .panel.panel-default
+        .panel-heading= post_type.name
+        .panel-body
+          - post_type.posts.limit(5).each do |post|
+            %p
+              = l post.post_at
+              = link_to post.title, post
+          = link_to I18n.t("home.continue"), posts_path(type: post_type.id)
+  .col-md-6
+    = form_for @inquiry do |f|
+      = f.text_area :content, placeholder: I18n.t("messages.inquiry"), class: "form-control"
+      = f.submit class: "btn btn-default"

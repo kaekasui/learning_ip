@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # ruby version
-ruby '2.1.0'
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -70,13 +70,23 @@ group :development, :test do
 
   gem 'factory_girl_rails'
 
-  gem 'simplecov', :require => false
-
   gem "better_errors"
   gem "binding_of_caller"
 
   # Use spork for speed of server
   gem 'spork'
+
+  # Give placeholder for the factory
+  gem 'faker'
+
+  # View the coverage of application
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+
+  gem 'ci_reporter'
+
+  # Open the browser for test
+  gem 'launchy'
 end
 
 # Use devise as the flexible authentication solution
@@ -87,6 +97,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 
 gem 'rails-i18n'
+gem 'i18n_generators'
 
 # Use kaminari for paginate
 gem 'kaminari'

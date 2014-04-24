@@ -1,0 +1,22 @@
+= form_for ['admin', @admin_post] do |f|
+  - if @admin_post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_post.errors.count, "error")} prohibited this admin_post from being saved:"
+      %ul
+        - @admin_post.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :post_at
+    = f.datetime_select :post_at, datetime_separator: "　　", include_seconds: true, use_month_numbers: true
+  .field
+    = f.label :post_type_id
+    = f.select :post_type_id, PostType.all.map {|p| [p.name, p.id]}, {}
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    = f.text_area :content
+  .actions
+    = f.submit

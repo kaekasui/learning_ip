@@ -1,0 +1,7 @@
+%ol.breadcrumb
+  %li= link_to I18n.t("home.page"), root_path
+  %li= link_to @section.name, @section
+  %li.active= @category.name
+
+.panel.panel-default
+  .panel-heading

@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading= model.model_name.human
+  .panel-body
+    = form_for ['admin', new_item], remote: true do |f|
+      = f.text_field :name, placeholder: I18n.t("messages.new_item", model: model.model_name.human), class: "form-control"
+  %table.table(class='#{model.name.underscore}')
+    = render partial: items

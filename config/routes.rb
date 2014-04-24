@@ -16,7 +16,20 @@ LearningIp::Application.routes.draw do
     get 'users/code-:code' => 'users/registrations#update_email', as: "update_users_email"
   end
 
+  resources :sections, only: [:show] do
+    resources :categories, only: [:show]
+  end
+  resources :inquiries, only: [:create]
+  resources :posts, only: [:index, :show]
+  resources :settings, only: [:create, :update]
+
   namespace :admin do
     root 'dashboard#index'
+    resources :cases
+    resources :categories, except: [:show, :new]
+    resources :inquiries, only: [:index, :destroy]
+    resources :posts
+    resources :post_types
+    resources :sections, except: [:show, :new]
   end
 end

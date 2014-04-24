@@ -1,0 +1,40 @@
+= form_for ['admin', @admin_case] do |f|
+  - if @admin_case.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_case.errors.count, "error")} prohibited this admin_case from being saved:"
+      %ul
+        - @admin_case.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :section_id
+    = f.select :section_id, Section.all.map {|s| [s.name, s.id]}, {}
+  .field
+    = f.label :category_id
+    = f.select :category_id, Category.all.map {|c| [c.name, c.id]}, {}
+  .field
+    = f.label :age
+    = f.text_field :age
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :answer_a
+    = f.text_area :answer_a
+  .field
+    = f.label :answer_b
+    = f.text_area :answer_b
+  .field
+    = f.label :answer_c
+    = f.text_area :answer_c
+  .field
+    = f.label :answer_d
+    = f.text_area :answer_d
+  .field
+    = f.label :answer
+    = f.text_field :answer
+  .field
+    = f.label :comment
+    = f.text_area :comment
+  .actions
+    = f.submit

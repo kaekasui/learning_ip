@@ -5,13 +5,13 @@
       %tr
         %th
           %label= User.human_attribute_name(:name)
-        %td= @original_user.name.present? ? @original_user.name : I18n.t("account.unregistered")
+        %td#name= @original_user.name.present? ? @original_user.name : I18n.t("account.unregistered")
         %td
           .btn.btn-default= link_to I18n.t("buttons.config"), users_name_path, id: "name"
       %tr
         %th
           %label= User.human_attribute_name(:email)
-        %td= @original_user.email.present? ? @original_user.email : I18n.t("account.unregistered")
+        %td#email= @original_user.email.present? ? @original_user.email : I18n.t("account.unregistered")
         %td
           .btn.btn-default= link_to I18n.t("buttons.config"), users_email_path, id: "email"
       - if @virtual_user

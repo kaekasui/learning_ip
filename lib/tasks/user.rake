@@ -1,5 +1,5 @@
 # encoding: utf-8
-# command: rake user:set_admin
+# command: rake user:set_admin USER_CODE='xxxxx'
 
 namespace :user do
   desc "Add administrator authority to user."

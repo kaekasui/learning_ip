@@ -1,4 +1,10 @@
 ja:
+  time:
+    formats:
+      default: '%Y-%m-%d'
+      long: '%B %d, %Y'
+      short: '%b %d'
+ 
   account:
     edit_email: "メールアドレスの変更"
     edit_password: "パスワードの変更"
@@ -18,12 +24,21 @@ ja:
     twitter_login: "Twitterでログイン"
     waiting_list: "登録待ち"
   actions:
+    add: "追加する"
     create: "登録する"
     login: "ログインする"
     regist_twitter: "Twitterを登録する"
     unregist_twitter: "Twitter連携を解除する"
     update: "更新する"
     mail: "送信する"
+  admin_menu:
+    dashboard: "ダッシュボード"
+    case: "問題"
+    category: "カテゴリ"
+    inquiry: "お問い合わせ"
+    post: "告知情報"
+    post_type: "告知情報種類"
+    section: "試験区分"
   buttons:
     config: "設定"
     edit_email: "メールアドレスの変更"
@@ -32,12 +47,32 @@ ja:
     name: "アプレンダー"
     subname: "[aprende.]"
     service: "情報処理技術者試験対策 e-Lerningサービス"
+  home:
+    page: "トップページ"
+    inquiry: "お問い合わせ"
+    continue: "続きを見る..."
+  dashboard:
+    all_users: "総ユーザー"
+    all_original_users: "一般ユーザー"
+    all_twitter_users: "Twitterユーザー"
+    users_count: "ユーザー数"
+  post_type:
+    all: "すべて"
+  setting:
+    category_test: "カテゴリ別の出題"
+    no_time: "なし"
+    test: "模擬試験"
+    all: "すべて"
   menu:
     admin: "管理"
+    setting: "設定"
   messages:
+    new_item: "%{model}名を追加"
     change_email: "メールアドレスを変更します。"
+    inquiry: "ご意見、ご感想、その他お問い合わせ内容を入力してください。"
     update_user_email: "メールアドレスを更新しました。"
     update_user_name: "ニックネームを更新しました。"
+    send_inquiry: "お問い合わせ内容を送信いたしました。"
     send_mail: "メールを送信しました。"
   errors:
     messages:

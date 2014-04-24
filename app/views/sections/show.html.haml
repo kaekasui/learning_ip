@@ -1,0 +1,46 @@
+%ol.breadcrumb
+  %li= link_to I18n.t("home.page"), root_path
+  %li.active= @section.name
+.col-md-3
+  %ul.list-group
+    %li.list-group-item= @section.name
+    - @section.categories.each do |category|
+      %li.list-group-item
+        = link_to category.name, section_category_path(section_id: @section.id, id: category.id)
+        %span.badge= category.cases.count
+.col-md-9
+  .panel.panel-default
+    .panel-heading= I18n.t("menu.setting")
+    .panel-body
+      %b= I18n.t("setting.category_test")
+      = form_for @setting, remote: true, html: { role: "form", class: "form-horizontal" } do |f|
+        - radio_disabled = current_user ? false : true
+        %table.table
+          %tr
+            %td(rowspan=2)= f.label :display_cases_count
+            %td= f.radio_button :all_or_count, '0', { disabled: radio_disabled }
+            %td= I18n.t("setting.all")
+          %tr
+            %td= f.radio_button :all_or_count, '1', { disabeld: radio_disabled }
+            %td
+              .form-group= f.text_field :display_cases_count, class: "form-control"
+          %tr
+            %td(rowspan=2)= f.label :test_time
+            %td= f.radio_button :non_or_time, '0', { disabled: radio_disabled }
+            %td= I18n.t("setting.no_time")
+          %tr
+            %td= f.radio_button :non_or_time, '1', { disabled: radio_disabled }
+            %td
+              .form-group= f.text_field :test_time, class: "form-control"
+          %tr
+            %td
+            %td
+            %td
+              .checkbox
+                %label
+                  = f.check_box :random_check
+                  = f.label :random_check
+        = f.submit class: "btn btn-default #{"disabled" unless current_user}", data: { disable_with: "Sending..." }
+        = hidden_field_tag :section_id, @section.id
+      %hr
+      %b= I18n.t("setting.test")
