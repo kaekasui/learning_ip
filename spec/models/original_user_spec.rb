@@ -1,12 +1,6 @@
 require 'spec_helper'
 
 describe OriginalUser do
-  # typeがOriginalUserになること
-  it "type is OriginalUser." do
-    user = build(:original_user)
-    expect(user.type).to eq "OriginalUser"
-  end
-
   describe "acts_as_paranoid" do
     # deleted_atが更新されること
     it "update the deleted_at" do
@@ -17,19 +11,22 @@ describe OriginalUser do
     end
   end
 
-  # パスワードが登録されている場合
-  context "when the password is not nil" do
-    # メールアドレスがなければ無効な状態であること
-    it "is invalid without a email." do
-      user = build(:original_user, email: "")
-      expect(user).to have(1).errors_on(:email)
-    end
+  # typeがOriginalUserになること
+  it "has OriginalUser type." do
+    user = build(:original_user)
+    expect(user.type).to eq "OriginalUser"
+  end
 
-    # メールアドレスがあれば有効な状態であること
-    it "is valid with a email." do
-      user = build(:original_user)
-      expect(user).to be_valid
-    end
+  # メールアドレスがなければ無効な状態であること
+  it "is invalid without a email." do
+    user = build(:original_user, email: "")
+    expect(user).to have(1).errors_on(:email)
+  end
+
+  # メールアドレスがあれば有効な状態であること
+  it "is valid with a email." do
+    user = build(:original_user)
+    expect(user).to be_valid
   end
 
   # パスワードが無ければ無効な状態であること
@@ -81,7 +78,7 @@ describe OriginalUser do
   end
 
   # メールアドレスが100桁であれば有効な状態であること
-  it "is valid with maximum(100) email." do
+  it "is valid with maximum(100) email, 100 characters." do
     user = build(:original_user, email: "a" * (MAX_LONG_TEXT_FIELD_LENGTH - 12) + "@example.com")
     expect(user).to have(0).errors_on(:email)
   end
@@ -93,7 +90,7 @@ describe OriginalUser do
   end
 
   # ニックネームが40桁であれば有効な状態であること
-  it "is valid with maximum(40) name." do
+  it "is valid with maximum(40) name, 40 characters." do
     user = build(:original_user, name: "a" * (MAX_TEXT_FIELD_LENGTH))
     expect(user).to have(0).errors_on(:name)
   end
