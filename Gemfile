@@ -87,6 +87,9 @@ group :development, :test do
 
   # Open the browser for test
   gem 'launchy'
+
+  # Driving a browser natively as a user would either locally or on a remote machine using the Selenium Server it marks a leap forward in terms of browser automation.
+  gem 'selenium-webdriver'
 end
 
 # Use devise as the flexible authentication solution
