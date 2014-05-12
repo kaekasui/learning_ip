@@ -12,4 +12,14 @@ describe Category do
     category = build(:category, name: "")
     expect(category).to have(1).errors_on(:name)
   end
+
+  describe "acts_as_paranoid" do
+    # deleted_atが更新されること
+    it "update the deleted_at" do
+      category = create(:category)
+      expect(category.deleted_at).to be_nil
+      category.destroy
+      expect(category.deleted_at).not_to be_nil
+    end
+  end
 end
