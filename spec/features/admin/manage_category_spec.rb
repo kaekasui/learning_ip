@@ -8,7 +8,7 @@ feature 'administrators manage categories.' do
   end 
 
   # カテゴリを登録する
-  scenario 'creates a category.', js: true do
+  scenario 'creates a category.' do
     visit admin_categories_path
 
     category_name = "カテゴリ名"
