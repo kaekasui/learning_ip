@@ -21,6 +21,7 @@ SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'capybara/rails'
 require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -33,6 +34,8 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 include Warden::Test::Helpers
 Warden.test_mode!
+
+Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
   Spork.each_run do
