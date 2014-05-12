@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe CategoriesController do
-  describe '#index' do
+  describe '#show' do
     let(:section) { create(:section) }
     let(:category) { create(:category) }
 
