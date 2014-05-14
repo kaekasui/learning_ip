@@ -7,13 +7,14 @@ feature 'administrators manage categories.' do
     login user
   end 
 
-  # カテゴリを登録する
-  scenario 'creates a category.' do
+  # カテゴリを登録し、そのカテゴリが表示されること
+  # カテゴリを登録し、そのカテゴリがデータとして登録されること
+  scenario 'creates a category, and display the category', js: true do
     visit admin_categories_path
 
     category_name = "カテゴリ名"
     fill_in 'category_name', with: category_name + "\n"
-    pending "エンターキーを押す"
+    expect(page).to have_content(category_name)
     expect(Category.last.name).to eq category_name
   end
 
