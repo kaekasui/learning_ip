@@ -57,7 +57,7 @@ end
 group :development, :test do
   # Use capybara as the test tool
   gem 'capybara'
-  gem 'capybara-webkit', '1.0.0'
+  #gem 'capybara-webkit', '1.0.0'
 
   # Use rspec as the test tool
   gem 'rspec-rails'
