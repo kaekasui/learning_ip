@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'simplecov-rcov'
+require 'capybara-webkit'
 
 SimpleCov.start do
   add_filter 'factories'
