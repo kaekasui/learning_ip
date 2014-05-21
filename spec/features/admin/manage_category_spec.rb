@@ -3,13 +3,20 @@ require 'spec_helper'
 # 管理者がカテゴリを管理する
 feature 'administrators manage categories.' do
   background do
-    user = create(:original_user, admin: true)
-    login user
+    @user = create(:original_user, admin: true)
   end 
 
   # カテゴリを登録し、そのカテゴリが表示されること
   # カテゴリを登録し、そのカテゴリがデータとして登録されること
   scenario 'creates a category, and display the category', js: true do
+    visit root_path
+
+    click_link I18n.t("account.login")
+    fill_in User.human_attribute_name(:email), with: @user.email
+    fill_in User.human_attribute_name(:password), with: @user.password
+    click_button I18n.t("actions.login")
+
+    wait_for_ajax
     visit admin_categories_path
 
     wait_for_ajax
@@ -21,6 +28,7 @@ feature 'administrators manage categories.' do
 
   # カテゴリを編集する
   scenario 'updates a category.' do
+    login @user
     visit admin_categories_path
 
     category = create(:category)
@@ -33,6 +41,7 @@ feature 'administrators manage categories.' do
 
   # カテゴリを削除する
   scenario 'deletes a category.' do
+    login @user
     visit admin_categories_path
 
     category = create(:category)
