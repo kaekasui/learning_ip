@@ -36,6 +36,7 @@ include Warden::Test::Helpers
 Warden.test_mode!
 
 Capybara.javascript_driver = :webkit
+Capybara.default_wait_time = 5
 Capybara.register_driver :selenium do |app|
   http_client = Selenium::WebDriver::Remote::Http::Default.new
   http_client.timeout = 100
