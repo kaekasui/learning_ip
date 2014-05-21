@@ -12,6 +12,7 @@ feature 'administrators manage categories.' do
   scenario 'creates a category, and display the category', js: true do
     visit admin_categories_path
 
+    wait_for_ajax
     category_name = "カテゴリ名"
     fill_in 'category_name', with: category_name + "\n"
     expect(page).to have_content(category_name)
