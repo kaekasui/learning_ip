@@ -7,7 +7,7 @@
         %td= @users.count
       %tr
         %td= I18n.t("dashboard.all_original_users")
-        %td= @users.find_all_by_provider(nil).count
+        %td= @users.where(provider: nil).count
       %tr
         %td= I18n.t("dashboard.all_twitter_users")
-        %td= @users.find_all_by_provider("twitter").count
+        %td= @users.where(provider: "twitter").count

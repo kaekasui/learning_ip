@@ -1,14 +1,6 @@
 require 'simplecov'
 require 'simplecov-rcov'
 
-SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
-
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'rspec/autorun'
-
 SimpleCov.start do
   add_filter 'factories'
 
@@ -20,8 +12,17 @@ SimpleCov.start do
   add_group 'Libraries', 'lib'
   add_group 'Routing', 'routing'
   add_group 'Features', 'features'
-  add_group 'Requests', 'requests'
+  #add_group 'Requests', 'requests'
 end
+
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+
+# This file is copied to spec/ when you run 'rails generate rspec:install'
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+require 'capybara/rails'
+require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -33,6 +34,14 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 include Warden::Test::Helpers
 Warden.test_mode!
+
+Capybara.javascript_driver = :webkit
+Capybara.default_wait_time = 5
+Capybara.register_driver :selenium do |app|
+  http_client = Selenium::WebDriver::Remote::Http::Default.new
+  http_client.timeout = 100
+  Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => http_client)
+end
 
 RSpec.configure do |config|
   Spork.each_run do
@@ -70,7 +79,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of

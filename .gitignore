@@ -25,3 +25,5 @@
 /.env.production
 /.env.development
 /.env.test
+
+/spec/reports/*

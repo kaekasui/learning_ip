@@ -5,7 +5,7 @@ class OriginalUser < User
                     uniqueness: true,
                     if: :email_required?
   validates :password, confirmation: :password_confirmation,
-                       length: { within: 6..MAX_TEXT_FIELD_LENGTH },
+                       length: { within: 8..128 },
                        if: :password_required?
   validates :name, length: { maximum: MAX_TEXT_FIELD_LENGTH }
 
